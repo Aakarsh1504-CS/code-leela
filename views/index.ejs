@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <div id="main">
+        <div id="container">
+            <div id="nav">
+                <h1>CodeLeela</h1>
+            </div>
+            <div id="index-form">
+                <div id="logo">
+                    <img src="/images/logo1.png" alt="">
+                </div>
+                <form action="/register" method="post" enctype="multipart/form-data">
+                    <input type="text" name="username" required maxlength="28" placeholder="Username">
+                    <input type="email" name="email" required maxlength="320" placeholder="Email">
+                    <div id="flex" style="display: flex;">
+                        <label for="image">Profile:</label>
+                        <input type="file" name="image" required >
+                    </div>
+                    <input type="password" name="password" required placeholder="Password">
+                    <input type="number" name="age" required placeholder="Age">
+                    <input type="submit" value="Sign Up">
+                    <div id="flex">
+                        <p>Already A User? </p><a href="/login">Login Here</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="/javascripts/script.js"></script>
+</body>
+</html>

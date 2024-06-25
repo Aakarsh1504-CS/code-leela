@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <div id="main">
+        <div id="nav2">
+            <h1>CodeLeela</h1>
+            <div id="btns">
+                <a href="/myposts">My Posts</a>
+                <a href="/create">Create Posts</a>
+                <a href="/">Logout</a>
+            </div>
+        </div>
+        <div id="users">
+            <div id="picon">
+                <div id="img-pic">
+                    <img src="<%=current.image%>" alt="">
+                </div>
+                <p><%=current.username%></p>
+            </div>
+            <% foll.follow.forEach((creator)=>{ %>
+                    <div id="picon">
+                        <div id="img-pic">
+                            <img src="<%=creator.image%>" alt="">
+                        </div>
+                        <p><%=creator.username%></p>
+                    </div>
+            <%})%>
+        </div>
+        <div id="lower">
+            <div id="post">
+                <% if(posts.length > 0) { %>
+                    <div id="space"></div>
+                    <% posts.forEach((post,idx) => { %>
+                        <div id="box<%=idx%>">
+                            <div id="head">
+                                <div id="header">
+                                    <div id="pp">
+                                        <img src="<%= post.author.image %>" alt="">
+                                    </div>
+                                    <h4><%= post.author.username %></h4>
+                                </div>
+                                <div id="header2">
+                                    <% if(post.author._id == user) { %>
+                                        <a href="/edit/<%=post._id%>">Edit</a>
+                                        <a href="/delete/<%=post._id%>/profile">Delete</a>
+                                    <% } else{ %>
+                                        <a href="/follow/<%=post.author._id%>"><%= post.author.followers.indexOf(user)===-1?"Follow":"Unfollow"%></a>
+                                    <%} %>
+                                </div>
+                            </div>
+                            <div id="img-div">
+                                <img src="<%= post.img %>" alt="">
+                            </div>
+                            <div id="content">
+                                <a href="/like/<%= post._id %>/<%=idx%>"><%= post.likes.indexOf(user) === -1 ? "Like" : "Unlike" %></a>
+                            <p><%= post.likes.length %> <%= post.likes.length === 1 ? "Like" : "Likes" %></p>
+                            <p><b><%= post.author.username %></b> <%= post.caption %></p>
+                            </div>
+                        </div>
+                    <% }) %>
+                    
+                <% } else { %>
+                    <h3>No posts Yet</h3>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <script src="/javascripts/script.js"></script>
+</body>
+</html>

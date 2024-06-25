@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <div id="main">
+        <div id="nav2">
+            <h1><a style="text-decoration: none; color: black;" href="/profile">CodeLeela</a></h1>
+            <div id="btns">
+                <a href="/myposts">My Posts</a>
+                <a href="/">LogOut</a>
+            </div>
+        </div>
+        <div id="container">
+            <form action="/edit/<%=epost._id%>" method="post">
+                <div id="img-div">
+                    <img src="<%=epost.img%>" alt="">
+                </div>
+                <textarea name="caption" id="caption" style="resize: none; width: 80%;height: 80px;margin-top: 20px;"><%=epost.caption.substring(0,epost.caption.length-9)%></textarea>
+                <br>
+                <input type="submit" id="create" value="Update">
+            </form>
+        </div>
+    </div>
+    <script src="/javascripts/script.js"></script>
+</body>
+</html>

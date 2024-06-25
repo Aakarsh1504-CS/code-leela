@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <div id="main">
+        <div id="nav2">
+            <h1><a style="text-decoration: none; color: black;" href="/profile">CodeLeela</a></h1>
+            <div id="btns">
+                <a href="/myposts">My Posts</a>
+                <a href="/">LogOut</a>
+            </div>
+        </div>
+        <div id="container">
+            <form action="/update" method="post" enctype="multipart/form-data">
+                <div id="img-div">
+                    <img src="<%=epost.img%>" alt="">
+                </div>
+                <br>
+                <label for="newpic">New Picture</label>
+                <input type="file" name="newpic">
+                <input type="submit" id="create" value="Update">
+            </form>
+        </div>
+    </div>
+    <script src="/javascripts/script.js"></script>
+</body>
+</html>

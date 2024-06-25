@@ -33,6 +33,9 @@ app.post("/register",upload.single("image"),async (req,res,next)=>{
     const mimeType = req.file.mimetype;
     const imgSrcString = `data:${mimeType};base64,${base64Image}`;
     let {username,email,password,age}=req.body;
+    username=username.trim();
+    password=password.trim();
+    email=email.trim();
     let user=await usm.findOne({username});
     let tuser=await usm.findOne({email});
     if(user || tuser) res.redirect("/login");
@@ -61,6 +64,8 @@ app.get("/login",(req,res,next)=>{
 
 app.post("/login",async (req,res,next)=>{
     let {username,password}=req.body;
+    username=username.trim();
+    password=password.trim();
     let user=await usm.findOne({username});
     if(!user) return res.redirect("/");
     bcrypt.compare(password,user.password,(err,result)=>{

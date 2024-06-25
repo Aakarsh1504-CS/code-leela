@@ -138,6 +138,10 @@ form input[type="submit"]{
     gap: 7px;
     padding: 2px;
 }
+#users a{
+    text-decoration:none;
+    color:black;
+}
 #picon{
     display: flex;
     flex-direction: column;

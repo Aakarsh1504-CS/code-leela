@@ -178,7 +178,7 @@ app.get("/delete/:id/:route",isLoggedIn,async (req,res,next)=>{
 });
 
 app.get("/updatepp",isLoggedIn,async (req,res,next)=>{
-    let user=await usm.finfOne({_id:req.user.id});
+    let user=await usm.findOne({_id:req.user.id});
     res.render("update",{user});
 });
 

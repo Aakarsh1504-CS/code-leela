@@ -17,8 +17,8 @@
                     <img src="/images/logo1.png" alt="">
                 </div>
                 <form action="/login" method="post">
-                    <input type="text" name="username" placeholder="Username">
-                    <input type="password" name="password" placeholder="Password">
+                    <input type="text" name="username" maxlength="28" required placeholder="Username">
+                    <input type="password" name="password" maxlength="64" required placeholder="Password">
                     <input type="submit" value="Login">
                     <div id="flex">
                         <p>New User? </p><a href="/">Sign Up Here</a>

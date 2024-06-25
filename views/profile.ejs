@@ -17,12 +17,14 @@
             </div>
         </div>
         <div id="users">
-            <div id="picon">
-                <div id="img-pic">
-                    <img src="<%=current.image%>" alt="">
+            <a href="/updatepp">
+                <div id="picon">
+                    <div id="img-pic">
+                        <img src="<%=current.image%>" alt="">
+                    </div>
+                        <p><%=current.username%></p>
                 </div>
-                <p><%=current.username%></p>
-            </div>
+            </a>
             <% foll.follow.forEach((creator)=>{ %>
                     <div id="picon">
                         <div id="img-pic">

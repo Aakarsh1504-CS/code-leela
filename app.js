@@ -177,6 +177,20 @@ app.get("/delete/:id/:route",isLoggedIn,async (req,res,next)=>{
     }
 });
 
+app.get("/updatepp",isLoggedIn,async (req,res,next)=>{
+    // let user=await usm.finfOne({_id:req.user.id});
+    res.render("update");
+});
+
+app.post("/update",isLoggedIn,upload.single("newpic"),async (req,res,next)=>{
+    const base64Image = req.file.buffer.toString('base64');
+    const mimeType = req.file.mimetype;
+    const imgSrcString = `data:${mimeType};base64,${base64Image}`;
+    let user=await usm.findOne({_id:req.user.id});
+    let upuser=await usm.findOneAndUpdate({_id:user._id},{image:imgSrcString},{new:true});
+    res.redirect("/profile");
+});
+
 function isLoggedIn(req,res,next){
     if(req.cookies.token){
         let data=jwt.verify(req.cookies.token,process.env.JWT_SECRET);

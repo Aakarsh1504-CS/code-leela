@@ -74,6 +74,9 @@ app.post("/login",async (req,res,next)=>{
             let token=jwt.sign({email:user.email,id:user._id},process.env.JWT_SECRET);
             res.cookie("token",token,{ httpOnly: true, secure: true, sameSite: 'strict' });
             res.redirect("/profile");
+        }else{
+            res.cookie("token","");
+            res.redirect("/login");
         }
     });
 });

@@ -19,7 +19,7 @@
             <form action="/create" method="post" enctype="multipart/form-data">
                 <div id="flex">
                     <label for="img">Post Image:</label>
-                    <input type="file" name="img" id="img">
+                    <input type="file" name="img" required accept=".jpg, .jpeg, .png, .pdf"  id="img">
                 </div>
                 <textarea name="caption" placeholder="Write A Caption For Your Post...." id="caption" style="resize: none; width: 80%;height: 80px;margin-top: 20px;"></textarea>
                 <br>
@@ -27,6 +27,18 @@
             </form>
         </div>
     </div>
+    <script>
+        document.getElementById('img').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const validTypes = ['image/jpeg', 'image/png', 'image/jpg'];
+                if (!validTypes.includes(file.type)) {
+                    alert('Invalid file type. Only JPEG, JPG, and PNG are allowed!');
+                    event.target.value = ''; // Clear the file input
+                }
+            }
+        });
+    </script>
     <script src="/javascripts/script.js"></script>
 </body>
 </html>

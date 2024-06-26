@@ -33,6 +33,18 @@
             </div>
         </div>
     </div>
+    <script>
+        document.getElementById('image').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const validTypes = ['image/jpeg', 'image/png', 'image/jpg'];
+                if (!validTypes.includes(file.type)) {
+                    alert('Invalid file type. Only JPEG, JPG, and PNG are allowed!');
+                    event.target.value = ''; // Clear the file input
+                }
+            }
+        });
+    </script>
     <script src="/javascripts/script.js"></script>
 </body>
 </html>
